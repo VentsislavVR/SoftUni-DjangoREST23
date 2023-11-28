@@ -16,3 +16,9 @@ class Employee(models.Model):
             ('Senior', 'Senior')
         )
     )
+    # def get_absolute_url(self):
+    #     ...
+
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
