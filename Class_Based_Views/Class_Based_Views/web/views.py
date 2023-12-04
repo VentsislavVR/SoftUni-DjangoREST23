@@ -117,3 +117,4 @@ class EmployeeUpdateView(UpdateView):
 #     def __init__(self):
 #         super().__init__()
 #         self.values.append(random.randint(15,30))
+
