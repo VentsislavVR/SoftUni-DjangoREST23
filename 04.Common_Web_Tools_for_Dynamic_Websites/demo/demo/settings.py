@@ -94,7 +94,12 @@ CACHES = {
         'LOCATION': 'app_cache',
     }
 }
-
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': 'D:\\tmp\django_cache',
+#     }
+# }
 
 
 # Password validation
