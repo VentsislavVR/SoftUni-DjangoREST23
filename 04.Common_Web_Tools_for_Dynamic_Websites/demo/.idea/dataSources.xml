@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db" uuid="e4339ae6-398b-42ab-b418-ddd9b3c25dd9">
+    <data-source source="LOCAL" name="db" uuid="2c8669a2-51ea-4280-ae9b-bc5ba4333c1c">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\GIT Repos\SoftUni-DjangoREST23\03.User_and_Password_Management\web\db.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\GIT Repos\SoftUni-DjangoREST23\04.Common_Web_Tools_for_Dynamic_Websites\demo\db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

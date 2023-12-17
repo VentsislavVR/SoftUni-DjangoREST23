@@ -1,0 +1,15 @@
+
+<h1>IT WORKS</h1>
+<h2> Count : {{ count }} </h2>
+
+<ul>
+    {% for user in users %}
+        <li>
+            {{ user.username }}
+        </li>
+        {% empty %}
+        <li>
+        No users
+        </li>
+    {% endfor %}
+</ul>
