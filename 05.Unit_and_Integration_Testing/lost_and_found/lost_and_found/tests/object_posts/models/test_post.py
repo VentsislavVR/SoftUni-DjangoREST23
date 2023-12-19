@@ -40,9 +40,11 @@ class PhoneTests(TestCase):
             self.VALID_POST_DATA,
             title='t' * Post.MAX_TITLE_LENGTH + 't', )
 
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(ValidationError) as context:
             # Explicitly call in tests
             post.full_clean()
+        # exception = context.exception
+        # self.a
 
     def test_create_when_phone_is_none_expect_to_raise(self):
         invalid_data = {

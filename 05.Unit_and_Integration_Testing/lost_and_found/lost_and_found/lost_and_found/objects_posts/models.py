@@ -15,18 +15,21 @@ class Object(models.Model):
 
 class Post(models.Model):
     MAX_TITLE_LENGTH = 30
+    MAX_DESCRIPTION_LENGTH = 500
+    MAX_AUTHOR_NAME_LENGTH = 10
+    MAX_AUTHOR_PHONE_LENGTH = 10
 
     title = models.CharField(
-        max_length=MAX_TITLE_LENGTH
+        max_length=MAX_TITLE_LENGTH,
     )
     description = models.TextField(
-        max_length=500
+        max_length=MAX_DESCRIPTION_LENGTH,
     )
     author_name = models.CharField(
-        max_length=10
+        max_length=MAX_AUTHOR_NAME_LENGTH,
     )
     author_phone = models.CharField(
-        max_length=10,
+        max_length=MAX_AUTHOR_PHONE_LENGTH,
         validators=(validate_phone,)
     )
     found = models.BooleanField(
