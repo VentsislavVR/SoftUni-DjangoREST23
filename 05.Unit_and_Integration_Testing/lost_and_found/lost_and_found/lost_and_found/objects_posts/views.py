@@ -2,14 +2,18 @@ from django.shortcuts import render, redirect
 
 from lost_and_found.objects_posts.models import Post
 from lost_and_found.objects_posts.forms import PostCreateForm, ObjectForm, PostEditForm
+from django.views import generic as views
 
-
-def index(request):
-    context = {
-        'posts': Post.objects.all(),
-    }
-
-    return render(request, 'index.html', context)
+class IndexView(views.ListView):
+    model = Post
+    template_name = 'index.html'
+    context_object_name = 'posts'
+# def index(request):
+#     context = {
+#         'posts': Post.objects.all(),
+#     }
+#
+#     return render(request, 'index.html', context)
 
 
 def edit(request, pk):

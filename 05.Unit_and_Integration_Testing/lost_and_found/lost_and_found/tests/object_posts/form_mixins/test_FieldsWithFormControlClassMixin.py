@@ -21,13 +21,13 @@ class FieldsWithFormControlClassMixin(TestCase):
                 field.widget.attrs['class']
             )
 
-        self.assertEqual(form.fields['title'].widget.attrs['class'], 'form-control')
-        self.assertEqual(form.fields['author_name'].widget.attrs['class'], 'form-control')
+        self.assertEqual( 'form-control',form.fields['title'].widget.attrs['class'])
+        self.assertEqual('form-control',form.fields['author_name'].widget.attrs['class'])
 
     def test_mixin_when_only_title_expect_only_title_to_have_html_class(self):
         FakeForm.form_control_fields = ('title',)
         form = FakeForm()
-        self.assertEqual('form-control',form.fields['title'].widget.attrs['class'], )
+        self.assertEqual('form-control',form.fields['title'].widget.attrs['class'])
 
         for field_name , field in form.fields.items():
             if field_name == 'title':
