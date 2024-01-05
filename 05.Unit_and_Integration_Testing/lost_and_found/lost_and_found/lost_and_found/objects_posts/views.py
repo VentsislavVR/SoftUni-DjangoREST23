@@ -8,6 +8,10 @@ class IndexView(views.ListView):
     model = Post
     template_name = 'index.html'
     context_object_name = 'posts'
+
+    def get(self,request,*args,**kwargs):
+
+        return super().get(request,*args,**kwargs)
 # def index(request):
 #     context = {
 #         'posts': Post.objects.all(),
