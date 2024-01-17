@@ -3,6 +3,8 @@
 from time import sleep
 from django.views import generic as views
 from rest_framework import generics as api_views, serializers, permissions
+from rest_framework.pagination import PageNumberPagination
+from rest_framework import viewsets
 
 from drf_demos.api.models import Author
 
@@ -12,7 +14,7 @@ class AuthorsView(views.ListView):
     template_name = 'authors.html'
 
     def get(self, request, *args, **kwargs):
-        sleep(5)
+        sleep(0)
         return super().get(request, *args, **kwargs)
 
 
@@ -39,12 +41,24 @@ class AuthorSerializer(serializers.ModelSerializer):
 #           "followers_count": 0}
 # )
 # print(author_serializer_json.is_valid())
-class AuthorsApiView(api_views.ListCreateAPIView):
+class CustomPageNumberPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+
+
+class AuthorsApiViewSet(viewsets.ModelViewSet):
     queryset = Author.objects.all()
+
+    serializers_class = AuthorSerializer
+
+
+class AuthorsApiView(api_views.ListCreateAPIView):
+    queryset = Author.objects.order_by('first_name', 'last_name', 'followers_count', 'pk')
     serializer_class = AuthorSerializer
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly,
     )
+    pagination_class = CustomPageNumberPagination
 
     def get(self, request, *args, **kwargs):
         print(request.session.get('count', None))
